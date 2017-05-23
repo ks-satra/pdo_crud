@@ -9,14 +9,14 @@ class Db {
   }
   private function connect(){
     $db_host = "localhost";
-    $db_name = "phprookie_db";$db_user = "root";
+    $db_name = "pdo_db";
+    $db_user = "root";
     $db_pass = "";
     try {
-    $this->database = new PDO("mysql:host=$db_host;
-    dbname=$db_name", $db_user, $db_pass);
-    $this->database->exec("SET CHARACTER SET
-    utf8");
-    }
+      $this->database = new PDO("mysql:host=$db_host;
+      dbname=$db_name", $db_user, $db_pass);
+      $this->database->exec("SET CHARACTER SET utf8");
+    } //ตัวแปรคล้าย if-else แต่จะดีกว่าตรงที่ว่า ถ้า error จะวิ่งไปทำงานที่ catch อัตโนมัติ
     catch (PDOException $e) {
       echo $e->getMessage();
     }
